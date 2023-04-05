@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import image from "./assets/horse1.jpg";
 export default function App() {
   const[long , setLong]=useState('');
   const[perimeter, setPerimeter]=useState('');
@@ -12,8 +12,29 @@ export default function App() {
     setResult(result);
   }
   return (
-    <View style={styles.container}>
-      <Text>Ló súly számítás</Text>
+    <View style={{backgroundImage:`url(${image})`, 
+    backgroundRepeat: 'no-repeat',
+    flex:1, backgroundSize:'cover',
+    alignItems:'center'}} >
+      <Text style={styles.mainTitle}>Ló súly számítás</Text>
+
+      <View style={styles.content}>
+          <Text style={styles.inputTitle}>Mellkas kerülete(cm)</Text>
+          <TextInput style={styles.input} onChangeText={(res) => setPerimeter(res)}></TextInput>
+
+          <Text style={styles.inputTitle}>Hossz(cm)</Text>
+          <TextInput style={styles.input} onChangeText={(res) => setLong(res)}></TextInput>
+
+          <TouchableHighlight onPress={calcWeight} >
+            <Text style={styles.button}>Számít</Text>
+          </TouchableHighlight>
+
+          <Text style={styles.inputTitle}>Eredmény</Text>
+          <TextInput style={styles.input} value={result} onChangeText={(res)=> setResult(res)}
+          editable={false} selectTextOnFocus={false}></TextInput>
+
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -22,8 +43,52 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#dddd',
+    alignItems: 'center',
+    
+  },
+  mainTitle:{
+    marginTop:100,
+    fontSize:25,
+    fontWeight:500,
+    color:"#19324D",
+    backgroundColor:"rgba(255,255,255,0.56)",
+    padding:10,
+    borderRadius:10,
+    width:350,
+    textAlign:'center'
+  },
+  content:{
+    display:'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:100,
+    backgroundColor: 'rgba(255,255,255,0.56)',
+    padding:20,
+    borderRadius:10
+
+  },
+  inputTitle:{
+    display:'flex',
+    alignItems: 'center',
+    justifyContent: 'left',
+    
+  },
+  input:{
+    backgroundColor:'#fff',
+    padding:10,
+    width:300,
+    borderRadius:10,
+    marginTop:10,
+    marginBottom:10
+  },
+  button:{
+    margin:10,
+    backgroundColor:'#69AAC3',
+    padding:15,
+    width:300,
+    textAlign:'center',
+    borderRadius:25,
+    fontWeight:600
   },
 });
