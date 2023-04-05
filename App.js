@@ -1,3 +1,14 @@
+/*
+* File: App.java
+* Author: Kovács Dorina
+* Copyright: 2023, Kovács Dorina
+* Group: Szoft II/N
+* Date: 2023-04-04
+* Github: https://github.com/Kdorina/
+* Licenc: GNU GPL
+*/
+
+
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
@@ -26,7 +37,13 @@ export default function App() {
           <TextInput style={styles.input} onChangeText={(res) => setLong(res)}></TextInput>
 
           <TouchableHighlight onPress={calcWeight} >
-            <Text style={styles.button}>Számít</Text>
+            <Text style={{margin:10,
+    background: "linear-gradient(45deg, #fff, #76BBC0)", 
+    padding:15,
+    width:300,
+    textAlign:'center',
+    borderRadius:25,
+    fontWeight:600}}>Számít</Text>
           </TouchableHighlight>
 
           <Text style={styles.inputTitle}>Eredmény</Text>
@@ -34,6 +51,7 @@ export default function App() {
           editable={false} selectTextOnFocus={false}></TextInput>
 
       </View>
+      <footer style={styles.footer}>Kovács Dorina, Szoft II/N , 2023-04-04</footer>
 
       <StatusBar style="auto" />
     </View>
@@ -62,7 +80,7 @@ const styles = StyleSheet.create({
     display:'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:100,
+    marginTop:50,
     backgroundColor: 'rgba(255,255,255,0.56)',
     padding:20,
     borderRadius:10
@@ -72,6 +90,8 @@ const styles = StyleSheet.create({
     display:'flex',
     alignItems: 'center',
     justifyContent: 'left',
+    fontSize:17,
+    marginTop:10
     
   },
   input:{
@@ -82,13 +102,11 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginBottom:10
   },
-  button:{
-    margin:10,
-    backgroundColor:'#69AAC3',
-    padding:15,
-    width:300,
-    textAlign:'center',
-    borderRadius:25,
-    fontWeight:600
-  },
+  footer:{
+    marginTop:70,
+    color:'#fff',
+    fontFamily:'Arial, Helvetica, sans-serif',
+    fontWeight:600,
+
+  }
 });
