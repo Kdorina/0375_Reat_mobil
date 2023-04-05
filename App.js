@@ -19,7 +19,7 @@ export default function App() {
   const[result , setResult]=useState('');
 
   function calcWeight(){
-    let result = (long*long*perimeter)/11877;
+    let result = (perimeter*perimeter*long)/11877;
     setResult(result);
   }
   return (
