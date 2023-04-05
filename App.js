@@ -38,12 +38,12 @@ export default function App() {
 
           <TouchableHighlight onPress={calcWeight} >
             <Text style={{margin:10,
-    background: "linear-gradient(45deg, #fff, #76BBC0)", 
-    padding:15,
-    width:300,
-    textAlign:'center',
-    borderRadius:25,
-    fontWeight:600}}>Számít</Text>
+              background: "linear-gradient(45deg, #fff, #76BBC0)", 
+              padding:15,
+              width:300,
+              textAlign:'center',
+              borderRadius:25,
+              fontWeight:600}}>Számít</Text>
           </TouchableHighlight>
 
           <Text style={styles.inputTitle}>Eredmény</Text>
